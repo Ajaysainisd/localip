@@ -6,14 +6,6 @@ A fully native, lightweight, zero-dependency system tray utility that gives you 
 
 ---
 
-## 🎨 Premium App Icon
-
-A modern, glassmorphic squircle icon featuring a glowing globe network utility design, compiled natively for each platform (AppKit `.icns` for Mac, native resources for Windows and Linux).
-
-![LocalIP App Icon](icon.png)
-
----
-
 ## ✨ Features by Platform
 
 ### 🍎 macOS Version (Swift / AppKit)
