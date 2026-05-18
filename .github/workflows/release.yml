@@ -1,0 +1,37 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*' # Trigger build on tag creation e.g., v1.0.0
+
+permissions:
+  contents: write # Crucial for creating releases and uploading assets
+
+jobs:
+  build:
+    name: Build & Publish macOS Release
+    runs-on: macos-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        
+      - name: Compile and Package App
+        run: |
+          chmod +x build.sh
+          ./build.sh
+          
+      - name: Zip Bundle
+        run: |
+          zip -r LocalIP.app.zip LocalIP.app
+          
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: LocalIP.app.zip
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
