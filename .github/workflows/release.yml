@@ -3,7 +3,7 @@ name: Build and Release
 on:
   push:
     tags:
-      - 'v*' # Trigger build on tag creation e.g., v1.1.0
+      - 'v*' # Trigger build on tag creation e.g., v1.1.1
 
 permissions:
   contents: write # Crucial for creating releases and uploading assets
@@ -15,7 +15,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         
       - name: Compile and Package App
         run: |
@@ -27,7 +27,7 @@ jobs:
           zip -r LocalIP-macOS.zip LocalIP.app
           
       - name: Upload macOS Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: macos-bin
           path: LocalIP-macOS.zip
@@ -38,7 +38,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         
       - name: Compile Windows C# Code
         run: |
@@ -47,7 +47,7 @@ jobs:
           Compress-Archive -Path LocalIP.exe -DestinationPath LocalIP-Windows.zip
           
       - name: Upload Windows Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: windows-bin
           path: LocalIP-Windows.zip
@@ -58,7 +58,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         
       - name: Set up Go
         uses: actions/setup-go@v4
@@ -79,7 +79,7 @@ jobs:
           tar -czvf ../LocalIP-Linux.tar.gz LocalIP-linux
           
       - name: Upload Linux Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: linux-bin
           path: LocalIP-Linux.tar.gz
@@ -91,22 +91,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         
       - name: Download macOS Binary
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: macos-bin
           path: .
           
       - name: Download Windows Binary
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: windows-bin
           path: .
           
       - name: Download Linux Binary
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: linux-bin
           path: .
