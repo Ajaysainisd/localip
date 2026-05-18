@@ -4,14 +4,6 @@ A fully native, lightweight, zero-dependency macOS menu bar utility that gives y
 
 ---
 
-## 🎨 Premium App Icon
-
-We generated a beautiful, glassmorphic squircle icon for the application bundle. The icon has been compiled into the standard macOS native `.icns` format and embedded into the app.
-
-![LocalIP App Icon](icon.png)
-
----
-
 ## ✨ Features and Highlights
 
 - **Sleek Icon-Only Status Bar**: Your menu bar stays clean! It only displays the glowing network icon `🌐` (or `⚠️` wifi-slash when offline). Simply click the icon to see the IP address, subnet, gateway, public IP, and latency.
