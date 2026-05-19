@@ -41,7 +41,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup CSC
-        uses: yoavain/Setup-CSC@v8
+        uses: yoavain/Setup-CSC@v5
         
       - name: Compile Windows C# Code
         run: |
