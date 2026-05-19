@@ -64,7 +64,16 @@ No matter what operating system you are running, you can easily use `$LOCAL_IP` 
 
 ### 📦 Pre-compiled Releases
 You do not need to install compilers or build tools! Simply go to the **[GitHub Releases Page](https://github.com/Ajaysainisd/localip/releases)** and download the bundled zip for your operating system:
-- **macOS**: Download `LocalIP-macOS.zip`, extract it, and double-click `LocalIP.app`.
+- **macOS**: Download `LocalIP-macOS.zip`, extract it, and drag `LocalIP.app` to your `/Applications` folder.
+  > [!TIP]
+  > **Bypassing macOS Gatekeeper / Quarantine:**  
+  > Since this app is compiled via GitHub Actions without a paid Apple Developer certificate, macOS will place it in quarantine on download.
+  > - **Easiest Way:** Right-click (or Control-click) `LocalIP.app`, select **Open** from the context menu, and then click **Open** on the confirmation dialog.
+  > - **Terminal Way:** If Gatekeeper blocks opening or says it's from an unidentified developer, open your Terminal and run:
+  >   ```bash
+  >   xattr -cr /Applications/LocalIP.app
+  >   ```
+  >   *This completely clears the quarantine flags, letting it start instantly from your menu bar!*
 - **Windows**: Download `LocalIP-Windows.zip`, extract it, and double-click `LocalIP.exe`.
 - **Linux/Ubuntu**: Download `LocalIP-Linux.tar.gz`, extract it, and run `./LocalIP-linux`.
 

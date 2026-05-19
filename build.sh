@@ -72,4 +72,8 @@ if [ -f icon.png ]; then
     echo "✅ AppIcon.icns generated successfully!"
 fi
 
+# 5. Ad-hoc Codesign the App Bundle
+echo "🔐 Ad-hoc codesigning the app bundle to seal resources and metadata..."
+codesign --force --deep --sign - LocalIP.app
+
 echo "=== ✨ Build Complete: LocalIP.app created! ==="
