@@ -40,8 +40,13 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup CSC
-        uses: yoavain/Setup-CSC@v5
+      - name: Locate and Add CSC to PATH
+        run: |
+          $cscPath = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -requires Microsoft.VisualStudio.Component.Roslyn.Compiler -find MSBuild\**\CSC.exe | Select-Object -First 1
+          $cscDir = Split-Path $cscPath
+          Write-Output "Found CSC in: $cscDir"
+          echo "$cscDir" >> $env:GITHUB_PATH
+        shell: pwsh
         
       - name: Compile Windows C# Code
         run: |
