@@ -39,6 +39,9 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+
+      - name: Setup CSC
+        uses: yoavain/Setup-CSC@v8
         
       - name: Compile Windows C# Code
         run: |
